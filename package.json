@@ -18,6 +18,8 @@
     "rollup-plugin-node-resolve": "^5.2.0"
   },
   "dependencies": {
-    "minimist": "^1.2.0"
+    "cli-color": "^2.0.0",
+    "minimist": "^1.2.0",
+    "sqlite": "^3.0.3"
   }
 }
