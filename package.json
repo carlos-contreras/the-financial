@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "cli-color": "^2.0.0",
+    "db-migrate": "^0.11.6",
+    "db-migrate-sqlite3": "^0.4.0",
     "minimist": "^1.2.0",
     "sqlite": "^3.0.3"
   }
