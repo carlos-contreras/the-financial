@@ -16,13 +16,14 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db) {
   return db.createTable('debts', {
-    id: { type: 'int', primaryKey: true },
+    id: { type: 'int', primaryKey: true, autoIncrement: true },
     creditorName: 'string',
     description: 'text',
     dueDate: 'date',
     amount: 'decimal',
-    amountIsAnEstimated: 'boolean'
-
+    amountIsAnEstimated: 'boolean',
+    createdAt: 'timestamp',
+    updatedAt: 'timestamps'
   });
 };
 

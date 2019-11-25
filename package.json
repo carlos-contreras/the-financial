@@ -2,8 +2,8 @@
   "name": "payments",
   "version": "1.0.0",
   "description": "This tool will help you track your recurrent payments on a monthly basis",
-  "main": "bundle.js",
-  "bin": "./bundle.js",
+  "main": "index.mjs",
+  "bin": "./index.mjs",
   "repository": "git@github.com:carlos-contreras/the-financial.git",
   "author": "Carlos Contreras <carloscontreras0420@gmail.com>",
   "license": "MIT",
@@ -12,16 +12,16 @@
     "build": "rollup --config"
   },
   "devDependencies": {
-    "rollup": "^1.27.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "typescript": "^3.7.2"
   },
   "dependencies": {
+    "better-sqlite3": "^5.4.3",
     "cli-color": "^2.0.0",
     "db-migrate": "^0.11.6",
     "db-migrate-sqlite3": "^0.4.0",
     "minimist": "^1.2.0",
+    "moment": "^2.24.0",
+    "prompts": "^2.3.0",
     "sqlite": "^3.0.3"
   }
 }
