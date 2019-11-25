@@ -1,5 +1,5 @@
 import minimist from "minimist";
-// import Debt from "./data_models/debts.mjs";
+import Debt from "./data_models/debts.mjs";
 import prompts from "prompts";
 import moment from "moment";
 
@@ -22,14 +22,13 @@ const createDebtPromptsConfig = [
     type: "date",
     name: "dueDate",
     message: "When is the due date?",
-    initial: moment().toDate(),
+    initial: moment().endOf("day").toDate(),
     validate: date => date > Date.now() ? true : "Can't be on the past"
   },
   {
     type: 'number',
     name: 'amount',
     message: 'Enter the amount of this debt',
-    format: val => Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' }).format(val),
   },
   {
     type: 'confirm',
@@ -38,10 +37,6 @@ const createDebtPromptsConfig = [
     initial: false,
   }
 ]
-
-const cleanup = () => {
-  console.log("Canceled or Submit!")
-}
 
 const newDebtPrompt = async () => {
   const response = await prompts(createDebtPromptsConfig);
@@ -53,7 +48,8 @@ const testFn = async () => {
   console.log(`hello world! from ES6, this are the options passed: ${JSON.stringify(args)}`);
 
   if (command === "new" && dataModel === "debt") {
-    await newDebtPrompt();
+    const debtParams = await newDebtPrompt();
+    Debt.create(debtParams)
   }
 }
 
