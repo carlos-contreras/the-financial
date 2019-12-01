@@ -40,16 +40,18 @@ const createDebtPromptsConfig = [
 
 const newDebtPrompt = async () => {
   const response = await prompts(createDebtPromptsConfig);
+  response.dueDate = moment(response.dueDate).format()
+  response.amountIsAnEstimated = response.amountIsAnEstimated.toString()
 
-  console.log(response);
+  return response;
 }
 
 const testFn = async () => {
   console.log(`hello world! from ES6, this are the options passed: ${JSON.stringify(args)}`);
-
   if (command === "new" && dataModel === "debt") {
     const debtParams = await newDebtPrompt();
-    Debt.create(debtParams)
+
+    Debt.create(debtParams);
   }
 }
 

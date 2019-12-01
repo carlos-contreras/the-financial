@@ -11,14 +11,18 @@ const insert = db.prepare(`
   (@creditorName, @description, @dueDate, @amount, @amountIsAnEstimated, @createdAt, @createdAt)
 `);
 
+const insertDebt = db.transaction((debtData) => {
+  console.log(debtData)
+  return insert.run({ createdAt: moment().format(), ...debtData })
+});
+
 // newDebt struct { creditorName, description, dueDate, amount, amountIsAnEstimated }
 const debts = {
   create(newDebt) {
-    db.transaction(() => {
-      const result = insert.run({ createdAt: moment().format("L"), ...newDebt })
-      console.log(result)
-    });
+    return insertDebt(newDebt);
   }
 }
+
+// Intl.DateTimeFormat('en-US').format(
 
 export default debts;
