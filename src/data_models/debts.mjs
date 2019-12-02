@@ -12,7 +12,7 @@ const insert = db.prepare(`
 `);
 
 const insertDebt = db.transaction((debtData) => {
-  console.log(debtData)
+  // console.log(debtData)
   return insert.run({ createdAt: moment().format(), ...debtData })
 });
 
