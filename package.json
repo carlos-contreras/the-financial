@@ -19,7 +19,7 @@
     "cli-color": "^2.0.0",
     "db-migrate": "^0.11.6",
     "db-migrate-sqlite3": "^0.4.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "moment": "^2.24.0",
     "prompts": "^2.3.0",
     "sqlite": "^3.0.3"
