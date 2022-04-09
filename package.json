@@ -20,7 +20,7 @@
     "db-migrate": "^0.11.6",
     "db-migrate-sqlite3": "^0.4.0",
     "minimist": "^1.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "prompts": "^2.3.0",
     "sqlite": "^3.0.3"
   }
